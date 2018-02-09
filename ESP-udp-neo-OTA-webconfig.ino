@@ -341,7 +341,46 @@ void setup_http_server(){
   });
 
   httpServer.on("/screen", [](){
-    String message = "<html><head><title>WS2812 LED Receiver</title></head><body>";
+    String message = "<html><head>\r\n";
+    message += "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\r\n";
+    message += "<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>\r\n";
+    message += "<script src='https://code.jquery.com/jquery-1.12.4.js'></script>\r\n";
+    message += "<script>\n\r";
+    message += "function menu(){\r\n";
+    message += "if($('#menu').css('top') == '-205px'){\r\n";
+    message += "$('#menu').css('top','99px');\r\n";
+    message += "}else{\r\n";
+    message += "$('#menu').css('top','-205px');\r\n";
+    message += "}\r\n";
+    message += "}\r\n";
+    message += "</script>\n\r";
+    message += "<title>WS2812 LED Receiver Screen</title></head><body>";
+
+    message += "<div style=\"position:absolute;height: 100px;width: 100%;background-color: #F44336;top: 0;margin: 0;border-bottom: solid 2px white; z-index:1;\">\r\n";
+    message += "<div class=\"boton\" style=\"float:right;\">\r\n";
+    message += "<a href=\"#menu\" onclick=\"menu();\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-option-horizontal\" style=\"font-size: 5em; margin: 14px; color: white;\"></span>\r\n";
+    message += "</a>\r\n";
+    message += "</div>\r\n";
+    message += "<span style=\"display:block;width:100%;font-size:2em;font-family:Verdana;margin: 30px 0 0;text-align:center;color:white;\">WS2812 LED Receiver Screen</span><br>\r\n";
+    message += "</div>\r\n";
+    message += "<div id=\"menu\" style=\"right: 0;background-color: #f44336;border: solid 1px white;width: 200px;height: auto;position: absolute; top:-205px; -webkit-transition:top 0.5s; transition:top 0.5s\">\r\n";
+    message += "<ul style=\"-webkit-padding-start: 0px;\">\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-home\" style=\"margin-right: 10px;\"></span><a href=\"/\" style=\"width: 75%; display: inline-block; color: white;\">Home</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-dashboard\" style=\"margin-right: 10px;\"></span><a href=\"/status\" style=\"width: 75%; display: inline-block; color: white;\">Status</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-th\" style=\"margin-right: 10px;\"></span><a href=\"/screen\" style=\"width: 75%; display: inline-block; color: white;\">Screen</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-picture\" style=\"margin-right: 10px;\"></span><a href=\"/bitmap\" style=\"width: 75%; display: inline-block; color: white;\">Bitmap</a>\r\n";
+    message += "</li>\r\n";
+    message += "</ul>\r\n";
+    message += "</div>\r\n";
+              
     print_leds_table(message);    
     message += "</body></html>";
     message += "</body></html>";
@@ -354,9 +393,47 @@ void setup_http_server(){
     long int hours = (mins/60);
     long int days = (hours/24);
     
-    String message = "<html><head><title>WS2812 LED Receiver</title></head><body>";
+    String message = "<html><head>\r\n";
+    message += "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\r\n";
+    message += "<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>\r\n";
+    message += "<script src='https://code.jquery.com/jquery-1.12.4.js'></script>\r\n";
+    message += "<script>\n\r";
+    message += "function menu(){\r\n";
+    message += "if($('#menu').css('top') == '-205px'){\r\n";
+    message += "$('#menu').css('top','99px');\r\n";
+    message += "}else{\r\n";
+    message += "$('#menu').css('top','-205px');\r\n";
+    message += "}\r\n";
+    message += "}\r\n";
+    message += "</script>\n\r";
+    message += "<title>WS2812 LED Receiver Status</title></head><body>\r\n";
 
-    message += "<TABLE>\r\n";
+    message += "<div style=\"position:absolute;height: 100px;width: 100%;background-color: #F44336;top: 0;margin: 0;border-bottom: solid 2px white; z-index:1;\">\r\n";
+    message += "<div class=\"boton\" style=\"float:right;\">\r\n";
+    message += "<a href=\"#menu\" onclick=\"menu();\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-option-horizontal\" style=\"font-size: 5em; margin: 14px; color: white;\"></span>\r\n";
+    message += "</a>\r\n";
+    message += "</div>\r\n";
+    message += "<span style=\"display:block;width:100%;font-size:2em;font-family:Verdana;margin: 30px 0 0;text-align:center;color:white;\">WS2812 LED Receiver Status</span><br>\r\n";
+    message += "</div>\r\n";
+    message += "<div id=\"menu\" style=\"right: 0;background-color: #f44336;border: solid 1px white;width: 200px;height: auto;position: absolute; top:-205px; -webkit-transition:top 0.5s; transition:top 0.5s\">\r\n";
+    message += "<ul style=\"-webkit-padding-start: 0px;\">\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-home\" style=\"margin-right: 10px;\"></span><a href=\"/\" style=\"width: 75%; display: inline-block; color: white;\">Home</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-dashboard\" style=\"margin-right: 10px;\"></span><a href=\"/status\" style=\"width: 75%; display: inline-block; color: white;\">Status</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-th\" style=\"margin-right: 10px;\"></span><a href=\"/screen\" style=\"width: 75%; display: inline-block; color: white;\">Screen</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-picture\" style=\"margin-right: 10px;\"></span><a href=\"/bitmap\" style=\"width: 75%; display: inline-block; color: white;\">Bitmap</a>\r\n";
+    message += "</li>\r\n";
+    message += "</ul>\r\n";
+    message += "</div>\r\n";
+
+    message += "<TABLE style=\"margin: 120px 40%; width: 20%; display: inline-block;\">\r\n";
 
     message += "<TR><TH>Uptime<TD>"; message += days; message += " days, ";
     snprintf (temp_str, TEMP_STR_LEN,"%02d:%02d:%02d.%03d",hours%24, mins%60, secs%60, (int)extended_mill%1000);
@@ -386,16 +463,21 @@ void print_leds_table(String & msg) {
 
   msg += "<TABLE COLS=\"";
   msg += T_WIDTH;
-  msg += "\">";
+  msg += "\" style=\"margin: 120px 40%; width: 20%; display: inline-block;\">\r\n";
   for (int i=0; i< T_WIDTH*T_HEIGHT; i++) {
     if (i%T_WIDTH == 0) {
       msg += "\r\n<TR>";
-    }       
-    snprintf (temp_str, TEMP_STR_LEN, "<TD width=\"10\" height=\"10\" bgcolor=\"#%02x%02x%02x\">&nbsp", 
-       std::min(web_brightness*pixels[i].R, 255),
-       std::min(web_brightness*pixels[i].G, 255),
-       std::min(web_brightness*pixels[i].B, 255)
-       );
+    }
+    if(i <= (PixelCount-1)) {
+      snprintf (temp_str, TEMP_STR_LEN, "<TD id=\"%d\" width=\"20\" height=\"20\" bgcolor=\"#%02x%02x%02x\">&nbsp", 
+         i,
+         std::min(web_brightness*pixels[i].R, 255),
+         std::min(web_brightness*pixels[i].G, 255),
+         std::min(web_brightness*pixels[i].B, 255)
+      );
+    } else {
+      snprintf (temp_str, TEMP_STR_LEN, "<TD style=\"display:none\">&nbsp");
+    }
     msg += temp_str;
   }
   msg += "\r\n</TABLE>\r\n";
@@ -404,6 +486,7 @@ void print_leds_table(String & msg) {
 void handleRoot() {
   //digitalWrite ( led, 1 );
   String out = "<html>\r\n<head>\r\n";
+  out += "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\r\n";
   out += "<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>\r\n";
   out += "<style type=\"text/css\">\r\n";
   out += "#custom-handle {width:3em; height:2.6em; /*top:50%;*/ margin-top:-.8em; text-align:center; line-height:2.6em; font-size:1.5em;}\r\n";
@@ -425,6 +508,13 @@ void handleRoot() {
   out += "$('.Args').css('display','none');\r\n";
   out += "}\r\n";
   out += "});\r\n";
+  out += "function menu(){\r\n";
+  out += "if($('#menu').css('top') == '-205px'){\r\n";
+  out += "$('#menu').css('top','99px');\r\n";
+  out += "}else{\r\n";
+  out += "$('#menu').css('top','-205px');\r\n";
+  out += "}\r\n";
+  out += "}\r\n";
   out += "$(function(){\r\n";
   out += "var handle = $(\"#custom-handle\");\r\n";
   out += "$(\"#slider\").slider({\r\n";
@@ -457,7 +547,6 @@ void handleRoot() {
   out += "}\r\n";
 
   out += "this.href += \"&BRILLO=\" + valorSlider.value;\r\n";
-  //out += "alert(\"Procesando Url. Brillo: \" + valorSlider.value);\r\n";
   out += "document.getElementById(\"form1\").submit();\r\n";
   out += "});\r\n";
   out += "}\r\n";
@@ -469,13 +558,37 @@ void handleRoot() {
   out += "</script>\r\n";
   
   out += "<title>Wifi light</title>\r\n</head>\r\n";
-  out += "<body style='background-color:#2e2e2e'>\r\n";
-  out += "<span style='display:block; width:100%; font-size:2em; font-family:Verdana; margin:20px 0 0; text-align:center; color:white'>Control Leds ESP8266-Hyperion</span><br/>\r\n";
+  out += "<body style='background-color:#2e2e2e; margin:0'>\r\n";
+  out += "<div style=\"position:absolute;height: 100px;width: 100%;background-color: #F44336;top: 0;margin: 0;border-bottom: solid 2px white; z-index:1;\">\r\n";
+  out += "<div class=\"boton\" style=\"float:right;\">\r\n";
+  out += "<a href=\"#menu\" onclick=\"menu();\">\r\n";
+  out += "<span class=\"glyphicon glyphicon-option-horizontal\" style=\"font-size: 5em; margin: 14px; color: white;\"></span>\r\n";
+  out += "</a>\r\n";
+  out += "</div>\r\n";
+  out += "<span style=\"display:block;width:100%;font-size:2em;font-family:Verdana;margin: 30px 0 0;text-align:center;color:white;\">Control Leds ESP8266-Hyperion</span><br>\r\n";
+  out += "</div>\r\n";
+  out += "<div id=\"menu\" style=\"right: 0; background-color:#f44336; border:solid 1px white; width:200px; height:auto; position:absolute; top:-205px; -webkit-transition:top 0.5s; transition:top 0.5s\">\r\n";
+  out += "<ul style=\"-webkit-padding-start: 0px;\">\r\n";
+  out += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+  out += "<span class=\"glyphicon glyphicon-home\" style=\"margin-right: 10px;\"></span><a href=\"/\" style=\"width: 75%; display: inline-block; color: white;\">Home</a>\r\n";
+  out += "</li>\r\n";
+  out += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+  out += "<span class=\"glyphicon glyphicon-dashboard\" style=\"margin-right: 10px;\"></span><a href=\"/status\" style=\"width: 75%; display: inline-block; color: white;\">Status</a>\r\n";
+  out += "</li>\r\n";
+  out += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+  out += "<span class=\"glyphicon glyphicon-th\" style=\"margin-right: 10px;\"></span><a href=\"/screen\" style=\"width: 75%; display: inline-block; color: white;\">Screen</a>\r\n";
+  out += "</li>\r\n";
+  out += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+  out += "<span class=\"glyphicon glyphicon-picture\" style=\"margin-right: 10px;\"></span><a href=\"/bitmap\" style=\"width: 75%; display: inline-block; color: white;\">Bitmap</a>\r\n";
+  out += "</li>\r\n";
+  out += "</ul>\r\n";
+  out += "</div>\r\n";
+  
   out += "<FORM id=\"form1\" action=\"/\" method=\"post\">\r\n";
   out += "<p>\r\n";
   out += "<input id=\"valorBrillo\" maxlength=\"3\" name=\"BRILLO\" type=\"hidden\">\r\n";
   out += "<input name=\"LED\" type=\"hidden\" id=\"color_value\" value=\"FFFFFF\">\r\n";
-  out += "<button title=\"Abrir el Selector de Color.\" style=\"width:auto; height:10%; font-size:33px; padding:0 3%\" class=\"jscolor {valueElement: 'color_value', width:800, height:500, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}\">Selecciona un color</button>\r\n"; //onchange=\"sendDac(document.getElementById('pin1').value);
+  out += "<button title=\"Abrir el Selector de Color.\" style=\"width:auto; height:100px; font-size:33px; padding:0 3%;margin: 110px 0 0 10px;\" class=\"jscolor {valueElement: 'color_value', width:800, height:500, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}\">Selecciona un color</button>\r\n"; //onchange=\"sendDac(document.getElementById('pin1').value);
   out += "</p>\r\n";
   out += "<a href='/?TV=1' title=\"Activar Hyperion\"><span style=\"width:auto; height:auto; background-color:buttonface; color:buttontext; position:absolute; bottom:12%; left:10px; font-size:33px; padding:3%\">TV</span></a><br/>\r\n";
   out += "<div style=\"background-color:black; border:solid 2px white; width:143px; height:auto; position:absolute; bottom:24%; color:white; padding:1% .5%; right:10; text-align:center; font-size:1.7em;\">\r\n";
@@ -484,14 +597,13 @@ void handleRoot() {
   out += "<p class=\"boton\" onclick=\"AjustBrillo(255);\" title=\"Resetear Brillo a: 255\" style=\"width:45%; height:auto; background-color:buttonface; color:buttontext; font-size: 50px;text-align:center; margin:0; display:inline-block; float:right;\">+</p>\r\n";
   out += "</div>\r\n";
   out += "<input class=\"boton\" type=\"submit\" onclick=\"processUrl(document.getElementById('color_value').value);\" style=\"width:auto; height:10%; position:absolute; bottom:12%; right:10px; font-size:33px; padding:0 3%;\">\r\n";
-  //out += "<INPUT type=\"reset\" style=\"width:200px; height:100px; position:absolute; bottom:12%; right:10px; font-size:33px\">\r\n";
   out += "<p style=\"position:absolute; font-size:45px; color:white; bottom:14%; left:43%\">Brillo: \r\n";
   out +=  httpServer.arg("BRILLO");
   out += "</p>\r\n";
   out += "<div id=\"slider\"><div id=\"custom-handle\" class=\"ui-slider-handle\"></div></div>\r\n";
   out += "</form><br/><br/>\r\n";
 
-  out += "<p class=\"Args\" style=\"color:white; position:absolute; top:3%; right:10px; font-size:1.7em; background-color:black; padding:1%; border:solid 2px white;\">Argumentos: ";
+  out += "<p class=\"Args\" style=\"color:white; position:absolute; top:110px; right:10px; font-size:1.7em; background-color:black; padding:1%; border:solid 2px white;\">Argumentos: ";
   out += httpServer.args();
   out += "<br/>\r\n";
   for ( uint8_t i = 0; i < httpServer.args(); i++ ) {
