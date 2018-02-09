@@ -489,8 +489,8 @@ void handleRoot() {
   out += "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\r\n";
   out += "<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>\r\n";
   out += "<style type=\"text/css\">\r\n";
-  out += "#custom-handle {width:3em; height:2.6em; /*top:50%;*/ margin-top:-.8em; text-align:center; line-height:2.6em; font-size:1.5em;}\r\n";
-  out += "#slider {width:55%; position:absolute; bottom:14.5%; left:16%;}\r\n";
+  out += "#custom-handle {width:3em; height:2.6em; margin-top:-.8em; text-align:center; line-height:2.6em; font-size:1.5em;}\r\n";
+  out += "#slider {width:50%; position:absolute; bottom:14.5%; left:21%;}\r\n";
   out += ".boton:hover, .jscolor:hover {cursor:pointer}\r\n";
   out += "</style>\r\n";
 
@@ -581,6 +581,9 @@ void handleRoot() {
   out += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
   out += "<span class=\"glyphicon glyphicon-picture\" style=\"margin-right: 10px;\"></span><a href=\"/bitmap\" style=\"width: 75%; display: inline-block; color: white;\">Bitmap</a>\r\n";
   out += "</li>\r\n";
+  out += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+  out += "<span class=\"glyphicon glyphicon-transfer\" style=\"margin-right: 10px;\"></span><a href=\"/update\" style=\"width: 75%; display: inline-block; color: white;\">Update</a>\r\n";
+  out += "</li>\r\n";
   out += "</ul>\r\n";
   out += "</div>\r\n";
   
@@ -588,7 +591,15 @@ void handleRoot() {
   out += "<p>\r\n";
   out += "<input id=\"valorBrillo\" maxlength=\"3\" name=\"BRILLO\" type=\"hidden\">\r\n";
   out += "<input name=\"LED\" type=\"hidden\" id=\"color_value\" value=\"FFFFFF\">\r\n";
-  out += "<button title=\"Abrir el Selector de Color.\" style=\"width:auto; height:100px; font-size:33px; padding:0 3%;margin: 110px 0 0 10px;\" class=\"jscolor {valueElement: 'color_value', width:800, height:500, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}\">Selecciona un color</button>\r\n"; //onchange=\"sendDac(document.getElementById('pin1').value);
+  out += "<div style=\"top: 97px; position: absolute; display: inherit;\">\r\n";
+  out += "<p class=\"Args\" style=\"color:white;font-size: 1.2em;background-color:black;padding: 2px 10px;border:solid 2px white;\">";
+  for ( uint8_t i = 0; i < httpServer.args(); i++ ) {
+    //out += "<br/>" + httpServer.argName ( i ) + ": " + httpServer.arg ( i ) + "\r\n";
+    out += " - " + httpServer.argName ( i ) + ": " + httpServer.arg ( i ) + "\r\n";
+  }
+  out += "</p>\r\n";
+  out += "</div>\r\n";
+  out += "<button title=\"Abrir el Selector de Color.\" style=\"width:auto; height:100px; font-size:33px; padding:0 3%;margin: 130px 0 0 10px;\" class=\"jscolor {valueElement: 'color_value', width:800, height:500, position:'bottom', borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}\">Selecciona un color</button>\r\n"; //onchange=\"sendDac(document.getElementById('pin1').value);
   out += "</p>\r\n";
   out += "<a href='/?TV=1' title=\"Activar Hyperion\"><span style=\"width:auto; height:auto; background-color:buttonface; color:buttontext; position:absolute; bottom:12%; left:10px; font-size:33px; padding:3%\">TV</span></a><br/>\r\n";
   out += "<div style=\"background-color:black; border:solid 2px white; width:143px; height:auto; position:absolute; bottom:24%; color:white; padding:1% .5%; right:10; text-align:center; font-size:1.7em;\">\r\n";
@@ -597,9 +608,7 @@ void handleRoot() {
   out += "<p class=\"boton\" onclick=\"AjustBrillo(255);\" title=\"Resetear Brillo a: 255\" style=\"width:45%; height:auto; background-color:buttonface; color:buttontext; font-size: 50px;text-align:center; margin:0; display:inline-block; float:right;\">+</p>\r\n";
   out += "</div>\r\n";
   out += "<input class=\"boton\" type=\"submit\" onclick=\"processUrl(document.getElementById('color_value').value);\" style=\"width:auto; height:10%; position:absolute; bottom:12%; right:10px; font-size:33px; padding:0 3%;\">\r\n";
-  out += "<p style=\"position:absolute; font-size:45px; color:white; bottom:14%; left:43%\">Brillo: \r\n";
-  out +=  httpServer.arg("BRILLO");
-  out += "</p>\r\n";
+  out += "<span class=\"glyphicon glyphicon-certificate\" style=\"position: absolute;font-size: 3em;color: lightgoldenrodyellow;top: 81%;left: 15%;\"></span>\r\n";
   out += "<div id=\"slider\"><div id=\"custom-handle\" class=\"ui-slider-handle\"></div></div>\r\n";
   out += "</form><br/><br/>\r\n";
 
