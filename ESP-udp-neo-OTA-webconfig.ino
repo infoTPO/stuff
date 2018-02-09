@@ -433,7 +433,7 @@ void setup_http_server(){
     message += "</ul>\r\n";
     message += "</div>\r\n";
 
-    message += "<TABLE style=\"margin: 120px 40%; width: 20%; display: inline-block;\">\r\n";
+    message += "<TABLE style=\"margin: 120px 10px; font-size:33px;\">\r\n";
 
     message += "<TR><TH>Uptime<TD>"; message += days; message += " days, ";
     snprintf (temp_str, TEMP_STR_LEN,"%02d:%02d:%02d.%03d",hours%24, mins%60, secs%60, (int)extended_mill%1000);
