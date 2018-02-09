@@ -378,6 +378,9 @@ void setup_http_server(){
     message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
     message += "<span class=\"glyphicon glyphicon-picture\" style=\"margin-right: 10px;\"></span><a href=\"/bitmap\" style=\"width: 75%; display: inline-block; color: white;\">Bitmap</a>\r\n";
     message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-transfer\" style=\"margin-right: 10px;\"></span><a href=\"/update\" style=\"width: 75%; display: inline-block; color: white;\">Update</a>\r\n";
+    message += "</li>\r\n";
     message += "</ul>\r\n";
     message += "</div>\r\n";
               
@@ -429,6 +432,9 @@ void setup_http_server(){
     message += "</li>\r\n";
     message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
     message += "<span class=\"glyphicon glyphicon-picture\" style=\"margin-right: 10px;\"></span><a href=\"/bitmap\" style=\"width: 75%; display: inline-block; color: white;\">Bitmap</a>\r\n";
+    message += "</li>\r\n";
+    message += "<li style=\"margin: 10px; font-size: 30px; list-style: none; -webkit-margin-after: 0; -webkit-padding-start: 0px; color: white;\">\r\n";
+    message += "<span class=\"glyphicon glyphicon-transfer\" style=\"margin-right: 10px;\"></span><a href=\"/update\" style=\"width: 75%; display: inline-block; color: white;\">Update</a>\r\n";
     message += "</li>\r\n";
     message += "</ul>\r\n";
     message += "</div>\r\n";
